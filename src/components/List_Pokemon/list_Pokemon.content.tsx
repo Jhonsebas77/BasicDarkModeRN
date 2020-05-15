@@ -45,7 +45,7 @@ export default function List_Pokemon() {
             <View style={styles.contentItemPokemon}>
                 <FlatList
                     data={newPokemonData}
-                    keyExtractor={(item) => (item as any).index}
+                    keyExtractor={item => `pokemon_${(item as any).idDex}`}
                     renderItem={({ item, index }) =>
                         <TouchableOpacity
                             onPress={() => onPressPokemon(item, index)}>

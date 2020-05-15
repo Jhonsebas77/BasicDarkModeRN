@@ -16,7 +16,6 @@ export default {
             width: isAndroidWNotch ? 340 : width
         },
         alignItems: 'center',
-        backgroundColor: 'rgba(0, 0, 0, 0.2)',
         marginHorizontal: 10,
         marginVertical: 1,
         flexDirection: 'row',
@@ -56,12 +55,10 @@ export default {
         borderRadius: 10
     },
     textNumber: {
-        color: 'white',
         fontWeight: 'bold',
         paddingHorizontal: 10
     },
     textName: {
-        color: 'white',
         fontWeight: 'bold',
         paddingLeft: 10
     }
