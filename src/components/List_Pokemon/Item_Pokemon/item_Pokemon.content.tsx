@@ -8,17 +8,18 @@ const styles = getComponentStyle(style)
 export default function ItemPokemon(props: ItemPkmnProps) {
     const { number = '', name = '', spriteSource = '', typeOneSource = {}, typeTwoSource = {} } = { ...props }
     const theme = useContext(ThemeContext)
+    const { backgroundColorItem = '', textColor = '' } = { ...theme }
     return (
-        <View style={[styles.itemPokemon, { backgroundColor: theme.backgroundColorItem }]}>
+        <View style={[styles.itemPokemon, { backgroundColor: backgroundColorItem }]}>
             <View style={styles.numberSprite}>
-                <Text style={[styles.textNumber, { color: theme.textColor }]} > {number} </Text>
+                <Text style={[styles.textNumber, { color: textColor }]} > {number} </Text>
                 <View style={styles.spriteContainer}>
                     {spriteSource ?
                         <Image style={styles.sprite} source={spriteSource} /> :
                         <Image style={styles.sprite} source={require('./../../../Assets/images/NoMiniSprite.png')} />
                     }
                 </View>
-                <Text style={[styles.textName, { color: theme.textColor }]}> {name} </Text>
+                <Text style={[styles.textName, { color: textColor }]}> {name} </Text>
             </View>
             <View style={styles.typeOneContainer}>
                 <Image style={styles.type} source={typeOneSource} />

@@ -14,15 +14,12 @@ console.error = (error) => error.apply
 
 export function App() {
   const colorScheme = useColorScheme()
+  const lightThemeConstant = 'light'
+  const isLightTheme = (theme: string) => theme === lightThemeConstant
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar
-        translucent={true}
-        backgroundColor='rgba(0, 0, 0, 0.2)'
-        barStyle={colorScheme === 'light' ? 'dark-content' : 'light-content'} />
-      <ThemeContext.Provider
-        value={colorScheme === 'light' ? lightTheme : darkTheme}
-      >
+      <StatusBar barStyle={isLightTheme(colorScheme) ? 'dark-content' : 'light-content'} />
+      <ThemeContext.Provider value={isLightTheme(colorScheme) ? lightTheme : darkTheme} >
         <Router />
       </ThemeContext.Provider>
     </View>

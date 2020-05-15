@@ -6,10 +6,18 @@ export default {
     loading: {
         width: width,
         height: isIphoneWNotch ? height - 110 : height,
-        paddingTop: 50
+        paddingTop: 10
     },
     contentItemPokemon: {
-        paddingTop: 10,
-        height: 550
+        height: 570
+    },
+    switch: {
+
+    },
+    containerDarkMode: {
+        margin: 20,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 }

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, View, TouchableOpacity } from 'react-native'
+import { FlatList, View, Switch, Text } from 'react-native'
 import { getAllPokemon } from '../../util/api'
 import { getComponentStyle } from '../../Helpers/Stylus'
 import ItemPokemon from './Item_Pokemon'
-import { Actions } from 'react-native-router-flux'
 import _ from '../../Helpers/Utilities'
 import { paddingNumber } from '../../Helpers/Tools'
 import Loading_Screen from '../Loading'
@@ -37,30 +36,26 @@ export default function List_Pokemon() {
             <Loading_Screen textLoading={'Cargando la Pokedex...'} />
         )
     }
-    const onPressPokemon = (item = {}, index: number) => Actions.PokemonDetail({ item, index })
 
     return (
         <View style={styles.loading} >
             {renderLoadingView()}
+            <View style={styles.containerDarkMode}>
+                <Text>{'Activar Modo Oscuro '}</Text>
+                <Switch style={styles.switch} trackColor={{ true: 'red', false: 'grey' }} thumbColor={'black'} />
+            </View>
             <View style={styles.contentItemPokemon}>
                 <FlatList
                     data={newPokemonData}
                     keyExtractor={item => `pokemon_${(item as any).idDex}`}
-                    renderItem={({ item, index }) =>
-                        <TouchableOpacity
-                            onPress={() => onPressPokemon(item, index)}>
-                            <ItemPokemon
-                                number={paddingNumber((item as any).idDex)}
-                                name={_.capitalize((item as any).name)}
-                                spriteSource={{ uri: (item as any).urlSprite }}
-                                typeTwoSource={{
-                                    uri: (item as any).typeTwoUrlSprite && (item as any).typeTwoUrlSprite
-                                }}
-                                typeOneSource={{
-                                    uri: (item as any).typeOneUrlSprite && (item as any).typeOneUrlSprite
-                                }}
-                            />
-                        </TouchableOpacity>
+                    renderItem={({ item }) =>
+                        <ItemPokemon
+                            number={paddingNumber((item as any).idDex)}
+                            name={_.capitalize((item as any).name)}
+                            spriteSource={{ uri: (item as any).urlSprite }}
+                            typeTwoSource={{ uri: (item as any).typeTwoUrlSprite && (item as any).typeTwoUrlSprite }}
+                            typeOneSource={{ uri: (item as any).typeOneUrlSprite && (item as any).typeOneUrlSprite }}
+                        />
                     } />
             </View>
         </View>
