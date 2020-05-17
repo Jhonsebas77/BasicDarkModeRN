@@ -7,7 +7,7 @@ import style from './item_Pokemon.style'
 const styles = getComponentStyle(style)
 export default function ItemPokemon(props: ItemPkmnProps) {
     const { number = '', name = '', spriteSource = '', typeOneSource = {}, typeTwoSource = {} } = { ...props }
-    const theme = useContext(ThemeContext)
+    const { theme = {} } = useContext(ThemeContext)
     const { backgroundColorItem = '', textColor = '' } = { ...theme }
     return (
         <View style={[styles.itemPokemon, { backgroundColor: backgroundColorItem }]}>

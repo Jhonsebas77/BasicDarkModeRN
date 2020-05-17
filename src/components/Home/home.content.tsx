@@ -7,7 +7,7 @@ import style from './home.style'
 
 const styles = getComponentStyle(style)
 export default function Home() {
-    const theme = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
     return (
         <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
             <Pokemon />

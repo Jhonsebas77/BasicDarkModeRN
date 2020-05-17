@@ -1,8 +1,7 @@
 import React from 'react'
 import Router from './routes'
 import { StatusBar, View, useColorScheme, YellowBox } from 'react-native'
-import { ThemeContext } from './Helpers/ThemeContext'
-import { lightTheme, darkTheme } from './Helpers/Themes'
+import ThemeProvider from './Helpers/ThemeProvider'
 console.disableYellowBox = true
 YellowBox.ignoreWarnings([
   'Encountered an error loading page',
@@ -19,9 +18,9 @@ export function App() {
   return (
     <View style={{ flex: 1 }}>
       <StatusBar barStyle={isLightTheme(colorScheme) ? 'dark-content' : 'light-content'} />
-      <ThemeContext.Provider value={isLightTheme(colorScheme) ? lightTheme : darkTheme} >
+      <ThemeProvider>
         <Router />
-      </ThemeContext.Provider>
+      </ThemeProvider>
     </View>
   )
 }

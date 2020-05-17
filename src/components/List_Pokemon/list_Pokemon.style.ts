@@ -12,7 +12,7 @@ export default {
         height: 570
     },
     switch: {
-
+        color: 'white'
     },
     containerDarkMode: {
         margin: 20,
