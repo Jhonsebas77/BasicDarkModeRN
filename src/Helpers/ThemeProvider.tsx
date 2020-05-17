@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { ThemeContext } from './ThemeContext'
 import { lightTheme, darkTheme } from './Themes'
-import { useColorScheme } from 'react-native'
-
+import { useColorScheme, StatusBar } from 'react-native'
 const LoadingProvider = ({ children }) => {
     const lightThemeConstant = 'light'
     const isLightTheme = (theme: string) => theme === lightThemeConstant
@@ -19,6 +18,7 @@ const LoadingProvider = ({ children }) => {
 
     return (
         <ThemeContext.Provider value={themeProvider}>
+            <StatusBar barStyle={isLightTheme(colorScheme) ? 'dark-content' : 'light-content'} />
             {children}
         </ThemeContext.Provider >
     )
