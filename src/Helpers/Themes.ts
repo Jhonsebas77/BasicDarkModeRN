@@ -1,17 +1,28 @@
+import rgba from 'rgba-convert'
+
+const color = {
+    white: rgba.hex('#FFFFFF'),
+    black: rgba.hex('#121212'),
+    grey: rgba.hex('#BDBDBD'),
+    greyDark: rgba.hex('#CFCFCF'),
+    green: rgba.hex('#077A3E'),
+    red: rgba.hex('#E30613')
+}
+
 export const lightTheme = {
-    backgroundColor: 'white',
-    backgroundColorItem: 'rgba(0, 0, 0, 0.1)',
-    textColor: 'black',
-    thumbColor: 'black',
-    trackColorOn: 'green',
-    trackColorOff: 'red'
+    backgroundColor: color.white,
+    backgroundColorItem: color.greyDark,
+    textColor: color.black,
+    thumbColor: color.black,
+    trackColorOn: color.green,
+    trackColorOff: color.red
 }
 
 export const darkTheme = {
-    backgroundColor: 'black',
-    backgroundColorItem: 'grey',
-    textColor: 'white',
-    thumbColor: 'white',
-    trackColorOn: 'green',
-    trackColorOff: 'red'
+    backgroundColor: color.black,
+    backgroundColorItem: color.grey,
+    textColor: color.white,
+    thumbColor: color.white,
+    trackColorOn: color.green,
+    trackColorOff: color.red
 }
